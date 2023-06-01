@@ -114,7 +114,8 @@ The `KSTokenConfiguration` struct includes an `UpdatePolicy` enum that defines h
 
     <img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/c7ac9ca8-a66a-4c01-83cb-e74321feb446">
     
-      <br>
+    
+<br>
 
 Here's an example of using `deleteThenAdd` policy:
 
