@@ -80,6 +80,7 @@ class CustomButton: UIButton, KSTokenByTokenDisplayable {
 
 In this example, `proxyText` is set to the text you want to update dynamically in the `didSet` block.
 **We strongly recommend using the `didSet` block to update text dynamically.**
+
 <br>
 
 ### Delegates
