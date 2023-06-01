@@ -18,6 +18,7 @@ KSDynamicText is a Swift framework that allows UILabels, UIButtons, and UITextVi
   * [Custom Components](#custom-components)
   * [Delegates](#delegates)
   * [Token Update Policies](#token-update-policies)
+  * [KSRotatingLabel](#KSRotatingLabel)
   <br>
 
 ---
@@ -53,6 +54,8 @@ label.baseText = "Hello, world!"
 label.startUpdates() // This will start label updates
 ```
 
+> **Note:** The `startUpdates()` method is required to start the label updates. Make sure to call this method after setting up the `baseText`.
+
 <br>
 
 ### Custom Components
@@ -79,7 +82,8 @@ class CustomButton: UIButton, KSTokenByTokenDisplayable {
 ```
 
 In this example, `proxyText` is set to the text you want to update dynamically in the `didSet` block.
-**We strongly recommend using the `didSet` block to update text dynamically.**
+
+> **Recommendation:** In this example, `proxyText` is set to the text you want to update dynamically in the `didSet` block. We **strongly recommend** using the `didSet` block to update text dynamically.
 
 <br>
 
@@ -128,3 +132,53 @@ label.tokenConfiguration = KSTokenConfiguration(
     tokenUpdatePolicy: .deleteThenAdd
 )
 ```
+
+<br>
+
+### KSRotatingLabel
+
+`KSRotatingLabel` is a special kind of `KSDynamicLabel` that rotates between a list of given texts. The number of labels, the text of each label, and the update interval are provided through a data source that conforms to the `GTRotatingLabelDataSource` protocol.
+
+Here's a basic example of how to use `KSRotatingLabel`:
+
+```swift
+class MyDataSource: KSRotatingLabelDataSource {
+    func numberOfLabels(for rotatingLabel: KSRotatingLabel) -> Int {
+        return 3
+    }
+
+    func rotatingLabel(_ rotatingLabel: KSRotatingLabel, labelForIndex index: Int) -> String? {
+        switch index {
+        case 0:
+            return "First Label"
+        case 1:
+            return "Second Label"
+        case 2:
+            return "Third Label"
+        default:
+            return nil
+        }
+    }
+
+    func updatesTimeInterval(for rotatingLabel: KSRotatingLabel) -> TimeInterval {
+        return 2.0
+    }
+}
+
+let myDataSource = MyDataSource()
+let rotatingLabel = KSRotatingLabel()
+rotatingLabel.dataSource = myDataSource
+rotatingLabel.startRotations() // This will start the label rotations
+```
+
+<br>
+
+To stop the rotations at any point, call the stopRotations() method:
+
+```swift
+rotatingLabel.stopRotations()
+```
+
+> **Note:** Make sure your data source provides a valid number of labels and labels for each index, and set a reasonable time interval for updates.
+
+<br>
