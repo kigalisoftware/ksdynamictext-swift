@@ -153,11 +153,11 @@ class MyDataSource: KSRotatingLabelDataSource {
     func rotatingLabel(_ rotatingLabel: KSRotatingLabel, labelForIndex index: Int) -> String? {
         switch index {
         case 0:
-            return "First Label"
+            return "This is an example for the first label"
         case 1:
-            return "Second Label"
+            return "This is an example for the second label"
         case 2:
-            return "Third Label"
+            return "This is a similar example for the third label"
         default:
             return nil
         }
