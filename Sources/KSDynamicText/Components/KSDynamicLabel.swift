@@ -33,8 +33,12 @@ public class KSDynamicLabel: UILabel, KSTokenByTokenDisplayable {
     // MARK: Properties
     public var tokenDelegate: KSTokenByTokenDisplayableDelegate?
     public var tokenConfiguration: KSTokenConfiguration
-    public var baseText: String?
-    public var proxyText: String?
     public var isActive: Bool
     public var timer: Timer?
+    public var baseText: String?
+    public var proxyText: String? {
+        didSet {
+            text = proxyText
+        }
+    }
 }
