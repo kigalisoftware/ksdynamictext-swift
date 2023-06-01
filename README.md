@@ -136,7 +136,7 @@ label.tokenConfiguration = KSTokenConfiguration(
 <br>
 
 ### KSRotatingLabel
-<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/53853ba6-35c3-444a-b748-2b9c7e4a16a7">
+<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/bcaa4ed5-c169-41e3-9d52-55d359427592">
 
 <br>
 
