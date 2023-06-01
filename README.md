@@ -32,6 +32,9 @@ You can install KSDynamicText via Swift Package Manager by adding the following 
 .package(url: "https://github.com/kigalisoftware/ksdynamictext-swift.git", .upToNextMajor(from: "1.0.0"))
 ```
 
+---
+
+<br>
 ## How It Works
 
 ### KSDynamicLabel
@@ -101,12 +104,15 @@ The `KSTokenConfiguration` struct includes an `UpdatePolicy` enum that defines h
 
 - `resetThenAdd`: This policy will reset the label and then add tokens back one by one. This is the default update policy.
   <img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
+  <br>
 
 - `resetThenAddReverse`: This policy will reset the label, but tokens are added from back to front.
   <img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
+  <br>
 
 - `deleteThenAdd`: With this policy, tokens are deleted one by one until the previous baseText prefix and the new baseText prefix match. Then the remaining tokens of the new baseText are added token by token.
   <img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
+  <br>
 
 Here's an example of using `deleteThenAdd` policy:
 
