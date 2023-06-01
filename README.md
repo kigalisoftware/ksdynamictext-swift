@@ -1,4 +1,4 @@
-<img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
+<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/53853ba6-35c3-444a-b748-2b9c7e4a16a7">
 
 # KSDynamicText
 
@@ -103,16 +103,15 @@ label.tokenDelegate = myDelegate
 The `KSTokenConfiguration` struct includes an `UpdatePolicy` enum that defines how tokens are updated when the base text changes. It offers three options:
 
 - `resetThenAdd`: This policy will reset the label and then add tokens back one by one. This is the default update policy.
-  <img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
   <br>
 
 - `resetThenAddReverse`: This policy will reset the label, but tokens are added from back to front.
-  <img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
   <br>
 
 - `deleteThenAdd`: With this policy, tokens are deleted one by one until the previous baseText prefix and the new baseText prefix match. Then the remaining tokens of the new baseText are added token by token.
-  <img src="https://jaysack-github-readme.s3.us-east-2.amazonaws.com/jsconstraints/jsconstraints-example.png">
   <br>
+
+    <img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/c7ac9ca8-a66a-4c01-83cb-e74321feb446">
 
 Here's an example of using `deleteThenAdd` policy:
 
