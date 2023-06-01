@@ -133,6 +133,8 @@ label.tokenConfiguration = KSTokenConfiguration(
 )
 ```
 
+<br>
+
 ### KSRotatingLabel
 
 `KSRotatingLabel` is a special kind of `KSDynamicLabel` that rotates between a list of given texts. The number of labels, the text of each label, and the update interval are provided through a data source that conforms to the `GTRotatingLabelDataSource` protocol.
