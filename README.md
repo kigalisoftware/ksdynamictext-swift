@@ -4,6 +4,26 @@
 
 KSDynamicText is a Swift framework that allows UILabels, UIButtons, and UITextViews to display text token by token, similar to the way ChatGPT outputs its generated text.
 
+---
+
+<br>
+
+## Table Of Content
+
+- [Installation](#-installation)
+  <br>
+
+- [How It Works](#-how-it-works)
+  _ [KSDynamicLabel](#KSDynamicLabel)
+  _ [Custom Components](#custom-components)
+  _ [Delegates](#delegates)
+  _ [Token Update Policies](#token-update-policies)
+  <br>
+
+---
+
+<br>
+
 ## Installation
 
 You can install KSDynamicText via Swift Package Manager by adding the following to your Package.swift file's dependencies:
@@ -12,7 +32,7 @@ You can install KSDynamicText via Swift Package Manager by adding the following 
 .package(url: "https://github.com/kigalisoftware/ksdynamictext-swift.git", .upToNextMajor(from: "1.0.0"))
 ```
 
-## Usage
+## How It Works
 
 ### KSDynamicLabel
 
@@ -28,6 +48,8 @@ let label = KSDynamicLabel()
 label.baseText = "Hello, world!"
 label.startUpdates() // This will start label updates
 ```
+
+<br>
 
 ### Custom Components
 
@@ -54,6 +76,7 @@ class CustomButton: UIButton, KSTokenByTokenDisplayable {
 
 In this example, `proxyText` is set to the text you want to update dynamically in the `didSet` block.
 **We strongly recommend using the `didSet` block to update text dynamically.**
+<br>
 
 ### Delegates
 
@@ -69,6 +92,8 @@ class MyDelegate: KSTokenByTokenDisplayableDelegate {
 let myDelegate = MyDelegate()
 label.tokenDelegate = myDelegate
 ```
+
+<br>
 
 ### Token Update Policies
 
