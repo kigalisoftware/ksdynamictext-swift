@@ -10,10 +10,10 @@ KSDynamicText is a Swift framework that allows UILabels, UIButtons, and UITextVi
 
 ## Table Of Content
 
-- [Installation](#-installation)
+- [Installation](#installation)
   <br>
 
-- [How It Works](#-how-it-works)
+- [How It Works](#how-it-works)
   * [KSDynamicLabel](#KSDynamicLabel)
   * [Custom Components](#custom-components)
   * [Delegates](#delegates)
