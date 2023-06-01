@@ -11,15 +11,21 @@ import UIKit
 public class KSDynamicLabel: UILabel, KSTokenByTokenDisplayable {
     
     // MARK: Init
+    // Convenience init
+    public convenience init(configuration: KSTokenConfiguration) {
+        self.init()
+        self.tokenConfiguration = configuration
+    }
+
     // Init w/ frame
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         self.tokenConfiguration = KSTokenConfiguration()
         self.isActive = false
         super.init(frame: frame)
     }
     
     // Init w/ coder
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         self.tokenConfiguration = KSTokenConfiguration()
         self.isActive = false
         super.init(coder: coder)

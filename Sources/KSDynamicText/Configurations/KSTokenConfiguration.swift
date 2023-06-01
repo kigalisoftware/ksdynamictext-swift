@@ -24,7 +24,7 @@ public struct KSTokenConfiguration {
     ///   - tokenLength: A closed range indicating the suggested length of each token. Default is `1...2`.
     ///   - tokenFrequency: The number of tokens to display per second. Default is `20`.
     ///   - tokenUpdatePolicy: The policy to follow when the base text changes. Default is `.resetThenAdd`.
-    init(
+    public init(
         tokenLength: ClosedRange<Int> = 1...2,
         tokenFrequency: Int = 20,
         tokenUpdatePolicy: UpdatePolicy = .resetThenAdd
@@ -39,7 +39,7 @@ public struct KSTokenConfiguration {
     /// - resetThenAdd: The label is reset, and then tokens are added from front to back.
     /// - resetThenAddReverse: The label is reset, but tokens are added from back to front.
     /// - deleteThenAdd: Tokens are deleted until the previous base text prefix matches the new base text prefix, then the component fills out the rest of the new base text token by token.
-    enum UpdatePolicy {
+    public enum UpdatePolicy {
         case resetThenAdd
         case resetThenAddReverse
         case deleteThenAdd
