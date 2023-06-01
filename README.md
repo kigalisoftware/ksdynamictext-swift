@@ -1,4 +1,4 @@
-<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/53853ba6-35c3-444a-b748-2b9c7e4a16a7">
+<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/53853ba6-35c3-444a-b748-2b9c7e4a16a7" width=500>
 
 # KSDynamicText
 
@@ -117,7 +117,7 @@ The `KSTokenConfiguration` struct includes an `UpdatePolicy` enum that defines h
 - `deleteThenAdd`: With this policy, tokens are deleted one by one until the previous baseText prefix and the new baseText prefix match. Then the remaining tokens of the new baseText are added token by token.
   <br>
 
-    <img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/c7ac9ca8-a66a-4c01-83cb-e74321feb446">
+    <img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/c7ac9ca8-a66a-4c01-83cb-e74321feb446" width=500>
     
     
 <br>
@@ -136,7 +136,7 @@ label.tokenConfiguration = KSTokenConfiguration(
 <br>
 
 ### KSRotatingLabel
-<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/bcaa4ed5-c169-41e3-9d52-55d359427592">
+<img src="https://github.com/kigalisoftware/ksdynamictext-swift/assets/44855831/bcaa4ed5-c169-41e3-9d52-55d359427592" width=500>
 
 <br>
 
