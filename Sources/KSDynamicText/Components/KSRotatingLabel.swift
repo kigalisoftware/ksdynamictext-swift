@@ -19,9 +19,14 @@ public class KSRotatingLabel: KSDynamicLabel {
 
     // MARK: Properties
     public weak var dataSource: KSRotatingLabelDataSource?
-    private var rotationTimer: Timer?
+    nonisolated(unsafe) private var rotationTimer: Timer?
     private var currentLabelIndex: Int?
     private var stopScheduled: Bool = false
+
+    // De-init
+    deinit {
+        rotationTimer?.invalidate()
+    }
 
     // MARK: Public Methods
     // Start rotation timer
