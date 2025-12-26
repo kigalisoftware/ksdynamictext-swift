@@ -8,6 +8,7 @@
 
 import Foundation
 
+@MainActor
 public protocol KSRotatingLabelDataSource: AnyObject {
     func numberOfLabels(for rotatingLabel: KSRotatingLabel) -> Int
     func rotatingLabel(_ rotatingLabel: KSRotatingLabel, labelForIndex index: Int) -> String?
@@ -18,9 +19,14 @@ public class KSRotatingLabel: KSDynamicLabel {
 
     // MARK: Properties
     public weak var dataSource: KSRotatingLabelDataSource?
-    private var rotationTimer: Timer?
+    nonisolated(unsafe) private var rotationTimer: Timer?
     private var currentLabelIndex: Int?
     private var stopScheduled: Bool = false
+
+    // De-init
+    deinit {
+        rotationTimer?.invalidate()
+    }
 
     // MARK: Public Methods
     // Start rotation timer
@@ -31,11 +37,13 @@ public class KSRotatingLabel: KSDynamicLabel {
         // Set timer
         let timeInterval = dataSource.updatesTimeInterval(for: self)
         rotationTimer = Timer(timeInterval: timeInterval, repeats: true) { [weak self] _ in
-            self?.rotateLabels()
+            MainActor.assumeIsolated {
+                self?.rotateLabels()
+            }
         }
         rotationTimer?.tolerance = 0.1
         if let timer = rotationTimer {
-            RunLoop.current.add(timer, forMode: .common)
+            RunLoop.main.add(timer, forMode: .common)
         }
         // Start updates
         startUpdates()

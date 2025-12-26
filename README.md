@@ -30,7 +30,7 @@ KSDynamicText is a Swift framework that allows UILabels, UIButtons, and UITextVi
 You can install KSDynamicText via Swift Package Manager by adding the following to your Package.swift file's dependencies:
 
 ```swift
-.package(url: "https://github.com/kigalisoftware/ksdynamictext-swift.git", .upToNextMajor(from: "1.0.0"))
+.package(url: "https://github.com/kigalisoftware/ksdynamictext-swift.git", .upToNextMajor(from: "2.0.0"))
 ```
 
 ---
@@ -63,6 +63,7 @@ label.startUpdates() // This will start label updates
 You can also use KSTokenByTokenDisplayable with your own custom classes:
 
 ```swift
+@MainActor
 class CustomButton: UIButton, KSTokenByTokenDisplayable {
 
     // Init methods
@@ -92,8 +93,9 @@ In this example, `proxyText` is set to the text you want to update dynamically i
 You can implement the `KSTokenByTokenDisplayableDelegate` protocol to receive a callback when the label has finished rendering its text:
 
 ```swift
+@MainActor
 class MyDelegate: KSTokenByTokenDisplayableDelegate {
-    func tokenRenderableDidFinishRendering(_ tokenRenderable: KSTokenByTokenDisplayable) {
+    func tokenByTokenLabel(_ label: KSTokenByTokenDisplayable, didRenderBaseText baseText: String?) {
         print("Finished rendering text!")
     }
 }
@@ -140,11 +142,12 @@ label.tokenConfiguration = KSTokenConfiguration(
 
 <br>
 
-`KSRotatingLabel` is a special kind of `KSDynamicLabel` that rotates between a list of given texts. The number of labels, the text of each label, and the update interval are provided through a data source that conforms to the `GTRotatingLabelDataSource` protocol.
+`KSRotatingLabel` is a special kind of `KSDynamicLabel` that rotates between a list of given texts. The number of labels, the text of each label, and the update interval are provided through a data source that conforms to the `KSRotatingLabelDataSource` protocol.
 
 Here's a basic example of how to use `KSRotatingLabel`:
 
 ```swift
+@MainActor
 class MyDataSource: KSRotatingLabelDataSource {
     func numberOfLabels(for rotatingLabel: KSRotatingLabel) -> Int {
         return 3

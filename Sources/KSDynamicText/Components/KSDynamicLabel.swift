@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 public class KSDynamicLabel: UILabel, KSTokenByTokenDisplayable {
     
     // MARK: Init
@@ -33,14 +34,14 @@ public class KSDynamicLabel: UILabel, KSTokenByTokenDisplayable {
     
     // De-init
     deinit {
-        stopUpdates()
+        timer?.invalidate()
     }
     
     // MARK: Properties
     public var tokenDelegate: KSTokenByTokenDisplayableDelegate?
     public var tokenConfiguration: KSTokenConfiguration
     public var isActive: Bool
-    public var timer: Timer?
+    nonisolated(unsafe) public var timer: Timer?
     public var baseText: String?
     public var proxyText: String? {
         didSet {

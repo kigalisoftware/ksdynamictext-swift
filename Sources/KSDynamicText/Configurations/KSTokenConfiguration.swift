@@ -7,7 +7,7 @@
 //
 
 /// A structure that encapsulates the configuration settings for a token-renderable component.
-public struct KSTokenConfiguration {
+public struct KSTokenConfiguration: Sendable {
 
     /// The suggested length of each token. The actual length is a random value within this closed range.
     let tokenLength: ClosedRange<Int>
@@ -39,7 +39,7 @@ public struct KSTokenConfiguration {
     /// - resetThenAdd: The label is reset, and then tokens are added from front to back.
     /// - resetThenAddReverse: The label is reset, but tokens are added from back to front.
     /// - deleteThenAdd: Tokens are deleted until the previous base text prefix matches the new base text prefix, then the component fills out the rest of the new base text token by token.
-    public enum UpdatePolicy {
+    public enum UpdatePolicy: Sendable {
         case resetThenAdd
         case resetThenAddReverse
         case deleteThenAdd
