@@ -8,6 +8,7 @@
 
 import Foundation
 
+@MainActor
 public protocol KSRotatingLabelDataSource: AnyObject {
     func numberOfLabels(for rotatingLabel: KSRotatingLabel) -> Int
     func rotatingLabel(_ rotatingLabel: KSRotatingLabel, labelForIndex index: Int) -> String?
@@ -31,7 +32,9 @@ public class KSRotatingLabel: KSDynamicLabel {
         // Set timer
         let timeInterval = dataSource.updatesTimeInterval(for: self)
         rotationTimer = Timer(timeInterval: timeInterval, repeats: true) { [weak self] _ in
-            self?.rotateLabels()
+            MainActor.assumeIsolated {
+                self?.rotateLabels()
+            }
         }
         rotationTimer?.tolerance = 0.1
         if let timer = rotationTimer {

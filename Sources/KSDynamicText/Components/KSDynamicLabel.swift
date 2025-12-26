@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 public class KSDynamicLabel: UILabel, KSTokenByTokenDisplayable {
     
     // MARK: Init
@@ -33,7 +34,9 @@ public class KSDynamicLabel: UILabel, KSTokenByTokenDisplayable {
     
     // De-init
     deinit {
-        stopUpdates()
+        MainActor.assumeIsolated {
+            stopUpdates()
+        }
     }
     
     // MARK: Properties

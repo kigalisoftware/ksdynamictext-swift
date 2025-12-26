@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 public protocol KSTokenByTokenDisplayable: UIView {
     // Delegate
     var tokenDelegate: KSTokenByTokenDisplayableDelegate? { get set }
@@ -49,7 +50,9 @@ public extension KSTokenByTokenDisplayable {
             timeInterval: 1 / TimeInterval(tokenConfiguration.tokenFrequency),
             repeats: true
         ) { [weak self] _ in
-            self?.updateDisplayedText()
+            MainActor.assumeIsolated {
+                self?.updateDisplayedText()
+            }
         }
         timer?.tolerance = 0.1
         guard let timer else { return }

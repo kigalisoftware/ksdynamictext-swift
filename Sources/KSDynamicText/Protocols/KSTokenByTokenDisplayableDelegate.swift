@@ -6,6 +6,7 @@
 //  Copyright © 2023 GHOST TECHNOLOGIES LLC. All rights reserved.
 //
 
+@MainActor
 public protocol KSTokenByTokenDisplayableDelegate {
     func tokenByTokenLabel(_ label: KSTokenByTokenDisplayable, didRenderBaseText baseText: String?)
 }
