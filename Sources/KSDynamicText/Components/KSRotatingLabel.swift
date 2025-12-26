@@ -43,7 +43,7 @@ public class KSRotatingLabel: KSDynamicLabel {
         }
         rotationTimer?.tolerance = 0.1
         if let timer = rotationTimer {
-            RunLoop.current.add(timer, forMode: .common)
+            RunLoop.main.add(timer, forMode: .common)
         }
         // Start updates
         startUpdates()

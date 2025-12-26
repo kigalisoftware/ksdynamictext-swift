@@ -22,6 +22,10 @@ let package = Package(
         ),
         .testTarget(
             name: "KSDynamicTextTests",
-            dependencies: ["KSDynamicText"]),
+            dependencies: ["KSDynamicText"],
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
+        ),
     ]
 )

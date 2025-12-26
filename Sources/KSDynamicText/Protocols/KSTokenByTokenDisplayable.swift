@@ -56,8 +56,8 @@ public extension KSTokenByTokenDisplayable {
         }
         timer?.tolerance = 0.1
         guard let timer else { return }
-        // Add to run loop
-        RunLoop.current.add(timer, forMode: .common)
+        // Add to main run loop
+        RunLoop.main.add(timer, forMode: .common)
     }
 
     // Update displayed text
